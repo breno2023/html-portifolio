@@ -1,1 +1,58 @@
+import time
+import sys
+
+# IMC (BMI) Calculator
+
+# Collecting data
+name = input("Enter your name: ")
+print(f"Hello {name}, I will ask you some questions to calculate your IMC (BMI).")
+
+age = input("Your age: ")
+height = input("Your height (in cm): ")
+weight = input("Your weight (in kg): ")
+eyes = input("Your eye color: ")
+teeth = input("Your teeth color: ")
+hair = input("Your hair color: ")
+
+# Processing message
+print(f"\nDear {name}, now that I have all your information, I will process your data. Please wait a moment...\n")
+
+for i in range(3):
+    sys.stdout.write(".")
+    sys.stdout.flush()
+    time.sleep(1)  # Pause for 1 second per dot
+
+print("\nProcessing data...")
+time.sleep(4)
+
+# Printing collected data
+print(f"\nYour name is {name}, you are {age} years old, your height is {height} cm, your weight is {weight} kg, and you have {eyes} eyes.")
+time.sleep(3)
+
+# Convert height and weight to float
+height = float(height) / 100  # Convert cm to meters
+bmi = float(weight) / (height ** 2)
+
+print(f"But last and not least, your IMC (BMI) is {bmi:.2f}")  # Format the output to 2 decimal places
+time.sleep(3)
+
+print("\nThanks for your patience, your data has been processed.")
+time.sleep(2)
+
+# Restart option
+print("\nWould you like to start again?")
+print("1. Yes")
+print("2. No")
+option = input("Enter your option: ")
+
+if option == "1":
+    print("\nGreat! Let's start again.\n")
+    time.sleep(2)
+    exec(open(__file__).read())  # Restart the script
+elif option == "2":
+    print("\nThank you for using our service. Goodbye!")
+    exit()
+else:
+    print("\nInvalid option. Exiting...")
+    exit()
 
